@@ -27,23 +27,3 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="./scripts/validation.js?12456"></script>
 <script src="./scripts/script.js?abcdef"></script>
-
-<!-- If URL does not have valid get Parameter direct to about:blank -->
-<script>
-  function findGetParameter(parameterName) {
-    var result = null,
-      tmp = [];
-    location.search
-      .substr(1)
-      .split('&')
-      .forEach(function (item) {
-        tmp = item.split('=');
-        if (tmp[0] === parameterName) result = decodeURIComponent(tmp[1]);
-      });
-    return result;
-  }
-
-  if (findGetParameter('id') !== 'OvnVADgVobOkAb') {
-    window.location.href = 'about:blank';
-  }
-</script>

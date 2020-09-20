@@ -1,0 +1,51 @@
+/* The animation code */
+@keyframes blendIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.center {
+  top: 0;
+  bottom: 0;
+  position: absolute;
+  margin: auto;
+  height: 1rem;
+  left: 0;
+  right: 0;
+  text-align: center;
+}
+
+body {
+  background: #eee;
+  color: #111;
+}
+
+form,
+table {
+  margin: 2%;
+}
+
+.danger {
+  display: none;
+}
+
+.blendIn {
+  animation-name: blendIn;
+  animation-duration: 2s;
+}
+
+.fixed {
+  position: fixed;
+  width: 100%;
+  text-align: center;
+  background: #eee;
+  padding: 1rem 0;
+}
+
+.bottom {
+  bottom: 0;
+}

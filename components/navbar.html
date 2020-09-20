@@ -1,0 +1,28 @@
+<nav class="navbar navbar-default navbar-light bg-light">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="./?id=OvnVADgVobOkAb"
+        >Stammdatenverwaltung</a
+      >
+    </div>
+    <ul class="nav navbar-nav">
+      <li>
+        <a class="nav-link" href="./hinzufuegen.php">Hinzufügen</a>
+      </li>
+      <li><a class="nav-link" href="./lesen.php">Lesen</a></li>
+      <li><a class="nav-link" href="./aendern.php">Ändern</a></li>
+      <li>
+        <a class="nav-link" href="./uebersichten.php">Übersichten</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<script>
+  var password = 'OvnVADgVobOkAb';
+  var links = document.getElementsByClassName('nav-link');
+  for (let index = 0; index < links.length; index++) {
+    const link = links[index];
+    link.setAttribute('href', link.getAttribute('href') + '?id=' + password);
+  }
+</script>

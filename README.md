@@ -14,20 +14,20 @@
 Folgende Schnittstellen wurden definiert:
 
 - backend/API/MITARBEITER/ADD
-  Parameter: ["id", "address", "birthdate", "dateEntry", "dateLeave", "name", "salary", "status"]
-  Method: POST
+  - Parameter: ["id", "address", "birthdate", "dateEntry", "dateLeave", "name", "salary", "status"]
+  - Method: POST
 - backend/API/MITARBEITER/GET
-  Parameter: ["id"]
-  Method: GET
+  - Parameter: ["id"]
+  - Method: GET
 - backend/API/MITARBEITER/UPDATE
-  Parameter: ["id", "address", "birthdate", "dateEntry", "dateLeave", "name", "salary", "status"]
-  Method: POST
+  - Parameter: ["id", "address", "birthdate", "dateEntry", "dateLeave", "name", "salary", "status"]
+  - Method: POST
 - backend/API/MITARBEITER/DELETE
-  Parameter: ["id"]
-  Method: POST
+  - Parameter: ["id"]
+  - Method: POST
 - backend/API/MITARBEITER/GETBYNAME
-  Parameter: ["name"]
-  Method: GET
+  - Parameter: ["name"]
+  - Method: GET
 - backend/API/MITARBEITER/GETLAST20
-  Parameter: []
-  Method: GET
+  - Parameter: []
+  - Method: GET

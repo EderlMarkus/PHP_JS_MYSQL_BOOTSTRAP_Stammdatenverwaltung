@@ -4,6 +4,7 @@ $('#submit').click(function (e) {
     let url = 'backend/API/MITARBEITER/GETBYNAME/?name=' + $('#name').val();
 
     $.get(url).done(function (response) {
+      response = JSON.parse(response);
       let tbody = $('#table tbody');
       tbody.html('');
       response.forEach((element) => {

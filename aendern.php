@@ -26,6 +26,6 @@
         </button>
       </div>
     </form>
-    <script src="./scripts/aendern.js?02932ddsdhdddd"></script>
+    <script src="./scripts/aendern.js"></script>
   </body>
 </html>

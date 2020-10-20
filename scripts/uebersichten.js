@@ -3,6 +3,7 @@ jQuery('#getHistorie').click(function () {
 
   $('.extra').text('Hinzugefügt am');
   $.get(url).done(function (response) {
+    response = JSON.parse(response);
     let tbody = $('#table tbody');
     tbody.html('');
     response.forEach((element) => {
@@ -26,6 +27,7 @@ jQuery('#getMitarbeiterSalary').click(function () {
   $('.extra').text('Abweichung vom Durchschnittsgehalt');
   let url = 'backend/API/MITARBEITER/GETALL/';
   $.get(url).done(function (response) {
+    response = JSON.parse(response);
     let tbody = $('#table tbody');
     tbody.html('');
     response.forEach((element) => {

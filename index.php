@@ -6,7 +6,7 @@
   <body>
   <?php include './components/navbar.html';?>
     <div class="center">
-      <h1 class="blendIn">Willkommen zur Stammdatenverwaltung 1.0</h1>
+      <h1 class="blendIn">Willkommen zur Stammdatenverwaltung 1.1</h1>
     </div>
   </body>
 </html>

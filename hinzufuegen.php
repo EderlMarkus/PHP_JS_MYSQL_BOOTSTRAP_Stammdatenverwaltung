@@ -70,6 +70,6 @@
       </div>
       </div>
     </form>
-    <script src="./scripts/hinzufuegen.js?343"></script>
+    <script src="./scripts/hinzufuegen.js?123"></script>
   </body>
 </html>

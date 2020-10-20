@@ -29,6 +29,6 @@
       </thead>
       <tbody></tbody>
     </table>
-    <script src="./scripts/lesen.js?ddd"></script>
+    <script src="./scripts/lesen.js"></script>
   </body>
 </html>

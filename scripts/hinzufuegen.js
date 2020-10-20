@@ -22,22 +22,23 @@ $('#submit').click(function (e) {
         dateLeave,
       };
 
-      console.log(obj);
+      console.log(JSON.stringify(obj));
 
       let url = 'backend/API/MITARBEITER/ADD/';
 
-      $.post(url, obj)
+      $.post(url, JSON.stringify(obj))
         .done(function (response) {
-          if (typeof response['SUCCESS'] !== 'undefined') {
+          response = JSON.parse(response);
+          debugger;
+          if (response['SUCCESS'] !== undefined) {
             alert('Mitarbeiter ' + obj.name + ' geadded!');
           } else {
             alert('Mitarbeiter nicht geadded!');
-            console.log(response);
           }
         })
         .fail(function (response) {
-          alert('Mitarbeiter nicht geadded!');
-          console.log(response);
+          response = JSON.parse(response);
+          alert('Mitarbeiter nicht geadded! \n' + response.ERROR);
         });
     }
   }

@@ -8,7 +8,7 @@ $('#submit').click(function (e) {
       if (response) {
         let tbody = $('#table tbody');
         tbody.html('');
-        turnDataIntoTable(tbody, response);
+        turnDataIntoTable(tbody, JSON.parse(response));
         validateForm();
       }
     });
@@ -48,6 +48,12 @@ function turnDataIntoTable(tbody, data) {
       } else if (key === 'salary') {
         td = $(
           '<td><input type="text" fieldType="salary" value="' +
+            element[key] +
+            '"/></td>'
+        );
+      } else if (key === 'address') {
+        td = $(
+          '<td><input type="text" fieldType="address" value="' +
             element[key] +
             '"/></td>'
         );
@@ -91,8 +97,9 @@ function sendChanges() {
     $('tr').each(function () {
       var obj = getEnteredDataAsObject(this);
       let url = 'backend/API/MITARBEITER/UPDATE/';
-      $.post(url, obj)
+      $.post(url, JSON.stringify(obj))
         .done(function (response) {
+          response = JSON.parse(response);
           if (typeof response['SUCCESS'] !== 'undefined') {
             alert('Mitarbeiter ' + obj.name + ' geupdated!');
           } else {

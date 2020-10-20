@@ -102,7 +102,7 @@ class DataObject extends Connection
             }
         }
 
-        $sql = "INSERT INTO $this->table $columnnames VALUES $valuesPlaceholder";
+        $sql = "INSERT INTO  $this->table $columnnames VALUES $valuesPlaceholder";
 
         return $this->executeQuery($sql, $values) !== false;
 
@@ -138,11 +138,14 @@ class DataObject extends Connection
 
     public function getById($id)
     {
+
         $sql = "SELECT * FROM $this->table WHERE id = ?";
-        if (sizeof($this->executeQuery($sql, [$id])) === 0) {
+        $result = $this->executeQuery($sql, [$id]);
+
+        if (sizeof($result) === 0) {
             return null;
         }
-        return $this->executeQuery($sql, [$id])[0];
+        return $result[0];
     }
 
 }

@@ -29,13 +29,13 @@ if ($_SERVER['REQUEST_METHOD'] !== $requestMethod) {
     echo $API_OBJECT->showError("Wrong Request Method, needs to be $requestMethod.");
 }
 
-$payload = $API_OBJECT->testInput($payload);
+$_POST = $API_OBJECT->testInput($_POST);
 
-if (!$API_OBJECT->checkIfParamsAreSet($payload, $NEEDEDPARAMS["ADD"])) {
+if (!$API_OBJECT->checkIfParamsAreSet($_POST, $NEEDEDPARAMS["ADD"])) {
     $API_OBJECT->showError("Invalid Parameters.");
 }
 
-$requestSuccessfull = $API_OBJECT->handleRequest($payload);
+$requestSuccessfull = $API_OBJECT->handleRequest($_POST);
 
 if ($requestSuccessfull) {
     $API_OBJECT->showSuccess($logMessageSuccess);

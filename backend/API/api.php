@@ -1,6 +1,6 @@
 <?php
 require_once dirname(dirname(__FILE__), 1) . "/const.php";
-
+require_once dirname(dirname(__FILE__), 1) . "/setHeaders.php";
 class API
 {
     protected $service;
@@ -9,7 +9,8 @@ class API
 
     public function __construct($service)
     {
-        header('Content-Type: application/json');
+        $headers = new Headers("https://edma.at/");
+        $headers->setHeaders();
         $this->const = API_CONST;
         $this->service = $service;
 
@@ -35,6 +36,7 @@ class API
 
     public function getById($payload)
     {
+
         return $this->service->getById($payload);
 
     }
@@ -48,7 +50,6 @@ class API
     {
         array_push($this->const["ERRORS"], $logMessage);
         echo json_encode(["ERROR" => $this->const["ERRORS"]]);
-        die();
     }
 
     public function showWarning($logMessage)
@@ -117,7 +118,7 @@ class API
             };
 
             switch (true) {
-                case $param == 'birthdate' || $param == 'dateEntry' || $param == 'dateLeave':
+                case $param == 'birthdate' || $param == 'dateEntry' || $param == 'dateLeave' || $param == 'vacationStart' || $param == 'vacationEnd':
                     $str = $payload[$param];
                     $pattern = "/^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/";
                     if (preg_match($pattern, $str) === 0) {
@@ -127,7 +128,7 @@ class API
                     break;
                 case $param == "name":
                     $str = $payload[$param];
-                    $pattern = '/^\pL+$/u';
+                    $pattern = '/^[a-zA-Z ]*$/';
                     if (preg_match_all($pattern, $str) === 0) {
                         $this->showError("Invalid Name.");
                         return false;
